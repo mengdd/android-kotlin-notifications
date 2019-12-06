@@ -10,6 +10,14 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
+        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+        Log.d(TAG, "From: ${remoteMessage?.from}")
+
+        // TODO: Step 3.5 check messages for data
+        // Check if message contains a data payload.
+        remoteMessage?.data?.let {
+            Log.d(TAG, "Message data payload: " + remoteMessage.data)
+        }
     }
     // Step 3.2 log registration token
     // [START on_new_token]
